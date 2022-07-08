@@ -1,0 +1,33 @@
+<%- include('partials/header') %>
+    <h1 style="padding-bottom: 2%;color: aliceblue;">&lt / CodeShare&gt</h1>
+
+    <br>
+    <div class="jumbotron text-center">
+        <div class="container" style="padding: 1%;">
+            <div class="form-container">
+                <form action="/sessions" method="GET">
+                    <h1>Enter session ID</h1>
+                    <br>
+                    <input style="padding-top: 5%;padding-bottom: 5%;" type="text" name="id" placeholder="Session ID"
+                        value=<%=sessionID %>>
+
+                    <input style="padding-top: 5%;padding-bottom: 5%;" type="text" name="name" placeholder="Your name"
+                        value=<%=displayName %>
+                    >
+                    <br>
+                    <button>Join</button>
+                </form>
+
+            </div>
+            <div class="overlay-container">
+                <div class="overlay">
+                    <div class="overlay-panel overlay-right">
+                        <h1>Join Session!</h1>
+                        <p>To join the session enter your name and session ID</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <%- include('partials/footer') %>

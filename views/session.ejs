@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+    <meta charset="utf-8">
+    <title>Code Share</title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.63.3/codemirror.min.css">
+    <link rel="stylesheet" href="/css/Main-styles.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+        integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+</head>
+
+<body style="background: #3b3b3b;">
+
+    <div class="topnav">
+        <a class="active" href="/">&lt / CodeShare&gt</a>
+        <a><button id="save" type="button" class="btn btn-outline-dark" style="color: #3b3b3b;">save</button></a>
+        <a><button id="download" type="button" class="btn btn-outline-dark"
+                style="color: #3b3b3b;">Download</button></a>
+    </div>
+
+    <h3 id="session"></h3>
+    <br>
+
+
+    <div class="row" style="padding-left: 2%;width: 98%;">
+        <div class="col-md-8" style="height: 800px;">
+            <textarea id="codeeditor"></textarea>
+        </div>
+        <div class="col-md-4" id="chat">
+            <div class="panel panel-primary" style="border-style: hidden;">
+                <div class="panel-heading" style="color: #333;background-color:white;border-color: #333;">
+                    Group Messages
+                    <span class="pull-right" id="user-name">
+                    </span>
+                </div>
+                <div class="panel-body" style="max-height: 700px; overflow-y: scroll;">
+                    <ul class="media-list" id="user-messages"></ul>
+                </div>
+                <div class="panel-footer">
+                    <div class="input-group">
+                        <input type="text" class="form-control" placeholder="Type message here" id="user-send" />
+                        <span class="input-group-btn">
+                            <button type="button" class="btn btn-primary" onclick="sendMessage()"
+                                style="background-color: #333;">SEND</button>
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.63.3/codemirror.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.63.3/mode/javascript/javascript.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.63.3/mode/python/python.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.42.2/mode/clike/clike.min.js"></script>
+    <script src="/plugins/ot/ot.js"></script>
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qs/6.10.1/qs.min.js"
+        integrity="sha512-aTKlYRb1QfU1jlF3k+aS4AqTpnTXci4R79mkdie/bp6Xm51O5O3ESAYhvg6zoicj/PD6VYY0XrYwsWLcvGiKZQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+    <script src="/js/session.js"> </script>
+
+    <%- include('partials/footer') %>

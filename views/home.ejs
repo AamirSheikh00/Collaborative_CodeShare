@@ -1,0 +1,42 @@
+<%- include('partials/header') %>
+    <h1 class="display-3" style="color: aliceblue;">Hello <%= nameVar %>!
+    </h1>
+    <h1><a class="btn btn-light btn-lg" style="display: inline;padding-bottom: 2%;color:beige;" href="/logout"
+            role="button"><u>Log Out</u></a></h1>
+    <br>
+    <div class="jumbotron text-center">
+        <div class="container" style="padding: 1%;">
+            <div class="form-container sign-in-container">
+                <form action="sessions/newSession" method="POST">
+                    <h1>Create Session</h1>
+                    <br>
+                    <input style="padding-top: 5%;padding-bottom: 5%;" type="text" name="sessionName"
+                        placeholder="Session Name" />
+                    <br>
+                    <button>submit</button>
+                </form>
+
+            </div>
+            <div class="overlay-container">
+                <div class="overlay">
+                    <div class="overlay-panel overlay-right">
+                        <a class="btn btn-light btn-lg" href="/sessions/join" role="button"><button class="ghost"
+                                href="/sessions/join">Join Session</button></a>
+                        <div>
+                            <h3> Past Sessions </h3>
+                            <ul>
+                                <% for(var i=0; i <owned.length; i++) { %>
+                                    <li>
+                                        <a href=<%=link + "?id=" + owned[i].id + "&name=" + user %>>
+                                            <%= owned[i].name %>
+                                        </a>
+                                    </li>
+                                    <% } %>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <%- include('partials/footer') %>
